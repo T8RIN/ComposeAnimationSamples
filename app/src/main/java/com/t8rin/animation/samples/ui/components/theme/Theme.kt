@@ -241,7 +241,7 @@ private val highContrastDarkColorScheme = darkColorScheme(
 @Composable
 fun AnimationSamplesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -250,8 +250,8 @@ fun AnimationSamplesTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> darkColorScheme()
-        else -> lightColorScheme()
+        darkTheme -> darkScheme
+        else -> lightScheme
     }
 
     MaterialTheme(
