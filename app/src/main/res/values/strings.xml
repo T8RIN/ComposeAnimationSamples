@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">AnimationSamples</string>
+    <string name="app_name" translatable="false">Animation Samples</string>
+    <string name="infinite_transition" translatable="false">rememberInfiniteTransition()</string>
+    <string name="animate_item" translatable="false">animateItem()</string>
+    <string name="animated_visibility" translatable="false">AnimatedVisibility</string>
+    <string name="animate_content_size" translatable="false">animateContentSize()</string>
+    <string name="update_transition" translatable="false">updateTransition()</string>
+    <string name="animate_as_state" translatable="false">animate*AsState()</string>
+    <string name="animatable" translatable="false">Animatable + animateTo() / snapTo()</string>
+
+    <string name="tapped_n_times">Tapped %s times</string>
+    <string name="is_need_to_be_repeated">Does the animation need to be repeated?</string>
+    <string name="is_layout_animation">Is this a layout animation?</string>
+    <string name="is_content_switching">Switching between multiple composables that have different content?</string>
+    <string name="animated_content">AnimatedContent</string>
+    <string name="is_appearance_animation">Appearance animation?</string>
+    <string name="is_need_size">Need size animation?</string>
+    <string name="is_other_params">Other layout parameters? (Offset, padding, etc.)</string>
+    <string name="is_list_item">Animating list items?</string>
+    <string name="is_multiple">Do multiple parameters need to be animated?</string>
+    <string name="is_predefined">Does the animation have a set of predefined parameters?</string>
+    <string name="is_independent">Are the parameters independent?</string>
+    <string name="is_together">Does the animation start at the same time?</string>
+    <string name="suspend_animatable">Animatable + animateTo() (with different timings)</string>
+    <string name="is_source_of_truth">Does the animation depend on gestures? Is your animation the only source of truth?</string>
+    <string name="is_one_shot">One-shot animation without state control?</string>
+    <string name="animation_state">AnimationState / animate()</string>
+    <string name="no_answer">No answer found. Write a request: goo.gle/compose-feedback</string>
 </resources>

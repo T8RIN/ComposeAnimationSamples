@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tapped_n_times">Нажато %s раз</string>
+    <string name="is_need_to_be_repeated">Нужно ли анимации повторяться?</string>
+    <string name="is_layout_animation">Это анимация лэйаута?</string>
+    <string name="is_content_switching">Переключение между несколькими composable, которые имеют различный контент?</string>
+    <string name="animated_content">AnimatedContent</string>
+    <string name="is_appearance_animation">Анимация появления?</string>
+    <string name="is_need_size">Необходимо анимировать размер?</string>
+    <string name="is_other_params">Другие параметры лэйаута? (Смещение, отступ, итд)</string>
+    <string name="is_list_item">Анимация элементов списка?</string>
+    <string name="is_multiple">Нужно ли анимировать несколько параметров?</string>
+    <string name="is_predefined">Имеет ли анимация набор предустановленных параметров?</string>
+    <string name="is_independent">Параметры независимы?</string>
+    <string name="is_together">Анимация начинается одновременно?</string>
+    <string name="suspend_animatable">Animatable + animateTo() (с разными таймингами)</string>
+    <string name="is_source_of_truth">Анимация зависит от жестов? Ваша анимация единственный источник правды?</string>
+    <string name="is_one_shot">Одноразовая анимация без контроля состояния?</string>
+    <string name="animation_state">AnimationState / animate()</string>
+    <string name="no_answer">Ответ не найден. Напишите запрос: goo.gle/compose-feedback</string>
+</resources>

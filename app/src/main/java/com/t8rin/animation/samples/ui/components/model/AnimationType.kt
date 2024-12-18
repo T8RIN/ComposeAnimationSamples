@@ -1,5 +1,7 @@
 package com.t8rin.animation.samples.ui.components.model
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Animatable
@@ -44,8 +46,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.t8rin.animation.samples.R
 import kotlinx.coroutines.delay
 import kotlin.random.Random
 
@@ -85,7 +89,10 @@ sealed class AnimationType(
                 Modifier
                     .size(100.dp)
                     .scale(scale)
-                    .background(MaterialTheme.colorScheme.primary, RoundedCornerShape(8.dp))
+                    .background(
+                        color = MaterialTheme.colorScheme.primary,
+                        shape = RoundedCornerShape(8.dp)
+                    )
             )
         }
     )
@@ -108,7 +115,7 @@ sealed class AnimationType(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Нажато ${"\$cnt"} раз",
+                        text = "Tapped ${"\$cnt"} times",
                         color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 }
@@ -116,7 +123,7 @@ sealed class AnimationType(
         """.trimIndent(),
         content = { duration ->
             var counter by remember { mutableIntStateOf(0) }
-            androidx.compose.animation.AnimatedContent(
+            AnimatedContent(
                 targetState = counter,
                 transitionSpec = {
                     fadeIn(tween(duration)) + expandVertically() togetherWith fadeOut(tween(duration)) + shrinkVertically()
@@ -125,14 +132,14 @@ sealed class AnimationType(
                 Box(
                     modifier = Modifier
                         .size(100.dp)
-                        .clip(androidx.compose.foundation.shape.RoundedCornerShape(8.dp))
+                        .clip(RoundedCornerShape(8.dp))
                         .background(MaterialTheme.colorScheme.secondaryContainer)
                         .clickable { counter++ }
                         .padding(8.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Нажато $cnt раз",
+                        text = stringResource(R.string.tapped_n_times, cnt),
                         color = MaterialTheme.colorScheme.onSecondaryContainer,
                         textAlign = TextAlign.Center
                     )
@@ -162,13 +169,13 @@ sealed class AnimationType(
                     visible = !visible
                 }
             }
-            androidx.compose.animation.AnimatedVisibility(visible = visible) {
+            AnimatedVisibility(visible = visible) {
                 Box(
                     Modifier
                         .size(100.dp)
                         .background(
                             color = MaterialTheme.colorScheme.secondary,
-                            shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp)
+                            shape = RoundedCornerShape(8.dp)
                         )
                 )
             }
@@ -201,7 +208,7 @@ sealed class AnimationType(
                     .size(if (expanded) 200.dp else 100.dp)
                     .background(
                         color = MaterialTheme.colorScheme.tertiary,
-                        shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp)
+                        shape = RoundedCornerShape(8.dp)
                     )
             )
         }
@@ -287,7 +294,10 @@ sealed class AnimationType(
             Box(
                 Modifier
                     .size(100.dp)
-                    .background(color, androidx.compose.foundation.shape.RoundedCornerShape(8.dp))
+                    .background(
+                        color = color,
+                        shape = RoundedCornerShape(8.dp)
+                    )
             )
         }
     )
@@ -408,7 +418,9 @@ sealed class AnimationType(
                     }
                 }
             }
-            LazyColumn {
+            LazyColumn(
+                modifier = Modifier.height(300.dp)
+            ) {
                 items(
                     items = data,
                     key = { it.hashCode() }
@@ -441,7 +453,7 @@ sealed class AnimationType(
                 }
             }
             LazyColumn(
-                modifier = Modifier.height(200.dp)
+                modifier = Modifier.height(300.dp)
             ) {
                 items(
                     items = data,

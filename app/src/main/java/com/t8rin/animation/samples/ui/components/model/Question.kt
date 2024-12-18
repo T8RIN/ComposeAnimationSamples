@@ -1,140 +1,142 @@
 package com.t8rin.animation.samples.ui.components.model
 
+import com.t8rin.animation.samples.R
+
 sealed class Question(
-    val question: String,
+    val questionResId: Int,
     val yesPath: Question? = null,
     val noPath: Question? = null,
     val animationType: AnimationType? = null
 ) {
-    object Start : Question(
-        question = "Нужно ли анимации повторяться?",
+    data object Start : Question(
+        questionResId = R.string.is_need_to_be_repeated,
         yesPath = RememberInfiniteTransition,
         noPath = IsLayout
     )
 
-    object RememberInfiniteTransition : Question(
-        question = "rememberInfiniteTransition",
+    data object RememberInfiniteTransition : Question(
+        questionResId = R.string.infinite_transition,
         animationType = AnimationType.InfiniteTransition
     )
 
-    object IsLayout : Question(
-        question = "Это анимация лэйаута?",
-        yesPath = SwitchBetweenComposables,
-        noPath = AnimateMultiple
+    data object IsLayout : Question(
+        questionResId = R.string.is_layout_animation,
+        yesPath = IsSwitchBetweenComposables,
+        noPath = IsAnimateMultiple
     )
 
-    object SwitchBetweenComposables : Question(
-        question = "Переключение между несколькими composable, которые имеют различный контент?",
+    data object IsSwitchBetweenComposables : Question(
+        questionResId = R.string.is_content_switching,
         yesPath = AnimatedContentAnimation,
-        noPath = AppearanceAnimation
+        noPath = IsAppearanceAnimation
     )
 
-    object AnimatedContentAnimation : Question(
-        question = "AnimatedContent",
+    data object AnimatedContentAnimation : Question(
+        questionResId = R.string.animated_content,
         animationType = AnimationType.AnimatedContent
     )
 
-    object AppearanceAnimation : Question(
-        question = "Анимация появления?",
+    data object IsAppearanceAnimation : Question(
+        questionResId = R.string.is_appearance_animation,
         yesPath = AnimateVisibility,
-        noPath = NeedAnimateContentSize
+        noPath = IsNeedAnimateContentSize
     )
 
-    object NeedAnimateContentSize : Question(
-        question = "Необходимо анимировать размер?",
+    data object IsNeedAnimateContentSize : Question(
+        questionResId = R.string.is_need_size,
         yesPath = ContentSize,
-        noPath = OtherProperties
+        noPath = IsOtherProperties
     )
 
-    object OtherProperties : Question(
-        question = "Другие параметры лэйаута? (Смещение, отступ, итд)",
-        yesPath = IndependentProperties,
+    data object IsOtherProperties : Question(
+        questionResId = R.string.is_other_params,
+        yesPath = IsIndependentProperties,
         noPath = IsListItemAnimations
     )
 
-    object IsListItemAnimations : Question(
-        question = "Анимация элементов списка?",
+    data object IsListItemAnimations : Question(
+        questionResId = R.string.is_list_item,
         yesPath = AnimateItemPlacement,
         noPath = AnswerNotFound
     )
 
-    object AnimateItemPlacement : Question(
-        question = "animateItem()",
+    data object AnimateItemPlacement : Question(
+        questionResId = R.string.animate_item,
         animationType = AnimationType.AnimateItemPlacement
     )
 
-    object AnimateVisibility : Question(
-        question = "AnimatedVisibility",
+    data object AnimateVisibility : Question(
+        questionResId = R.string.animated_visibility,
         animationType = AnimationType.AnimatedVisibility
     )
 
-    object ContentSize : Question(
-        question = "animateContentSize()",
+    data object ContentSize : Question(
+        questionResId = R.string.animate_content_size,
         animationType = AnimationType.AnimateContentSize
     )
 
-    object AnimateMultiple : Question(
-        question = "Нужно ли анимировать несколько параметров?",
-        yesPath = IndependentProperties,
-        noPath = HavePredefinedValues
+    data object IsAnimateMultiple : Question(
+        questionResId = R.string.is_multiple,
+        yesPath = IsIndependentProperties,
+        noPath = IsHavePredefinedValues
     )
 
-    object HavePredefinedValues : Question(
-        question = "Имеет ли анимация набор предустановленных параметров?",
+    data object IsHavePredefinedValues : Question(
+        questionResId = R.string.is_predefined,
         yesPath = AnimateAsState,
         noPath = IsGestureDrivenAnimation
     )
 
-    object AnimateAsState : Question(
-        question = "animate*AsState()",
+    data object AnimateAsState : Question(
+        questionResId = R.string.animate_as_state,
         animationType = AnimationType.AnimateAsState
     )
 
-    object IndependentProperties : Question(
-        question = "Параметры независимы?",
+    data object IsIndependentProperties : Question(
+        questionResId = R.string.is_independent,
         yesPath = AnimateAsState,
-        noPath = AnimateTogether
+        noPath = IsAnimateTogether
     )
 
-    object AnimateTogether : Question(
-        question = "Анимация начинается одновременно?",
+    data object IsAnimateTogether : Question(
+        questionResId = R.string.is_together,
         yesPath = UpdateTransition,
         noPath = AnimateSuspend
     )
 
-    object UpdateTransition : Question(
-        question = "updateTransition",
+    data object UpdateTransition : Question(
+        questionResId = R.string.update_transition,
         animationType = AnimationType.UpdateTransition
     )
 
-    object AnimateSuspend : Question(
-        question = "Animatable + animateTo() (с разными таймингами)",
+    data object AnimateSuspend : Question(
+        questionResId = R.string.suspend_animatable,
         animationType = AnimationType.Animatable
     )
 
-    object IsGestureDrivenAnimation : Question(
-        question = "Анимация зависит от жестов? Ваша анимация единственный источник правды?",
+    data object IsGestureDrivenAnimation : Question(
+        questionResId = R.string.is_source_of_truth,
         yesPath = AnimateToSnap,
-        noPath = OneShotAnimation
+        noPath = IsOneShotAnimation
     )
 
-    object AnimateToSnap : Question(
-        question = "Animatable + animateTo() / snapTo()",
+    data object AnimateToSnap : Question(
+        questionResId = R.string.animatable,
         animationType = AnimationType.Animatable
     )
 
-    object OneShotAnimation : Question(
-        question = "Одноразовая анимация без контроля состояния?",
+    data object IsOneShotAnimation : Question(
+        questionResId = R.string.is_one_shot,
         yesPath = AnimationState,
         noPath = AnswerNotFound
     )
 
-    object AnimationState : Question(
-        question = "AnimationState или animate()",
+    data object AnimationState : Question(
+        questionResId = R.string.animation_state,
         animationType = AnimationType.AnimationState
     )
 
-    object AnswerNotFound : Question(
-        question = "Ответ не найден. Напишите запрос: goo.gle/compose-feedback"
+    data object AnswerNotFound : Question(
+        questionResId = R.string.no_answer
     )
 }
