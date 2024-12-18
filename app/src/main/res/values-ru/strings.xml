@@ -18,4 +18,7 @@
     <string name="is_one_shot">Одноразовая анимация без контроля состояния?</string>
     <string name="animation_state">AnimationState / animate()</string>
     <string name="no_answer">Ответ не найден. Напишите запрос: goo.gle/compose-feedback</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="animation_samples">Примеры Анимаций</string>
 </resources>

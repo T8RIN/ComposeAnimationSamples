@@ -47,6 +47,7 @@ import com.t8rin.animation.samples.ui.components.AnimationExample
 import com.t8rin.animation.samples.ui.components.CodeExample
 import com.t8rin.animation.samples.ui.components.model.Question
 import com.t8rin.animation.samples.ui.viewModel.MainViewModel
+import com.t8rin.animation.samples.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,7 +63,7 @@ fun App(viewModel: MainViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Анимации") },
+                title = { Text(stringResource(R.string.animation_samples)) },
                 navigationIcon = {
                     AnimatedVisibility(currentQuestion != Question.Start) {
                         IconButton(onClick = viewModel::pop) {
@@ -141,7 +142,7 @@ fun App(viewModel: MainViewModel) {
                                 )
                             ) {
                                 Text(
-                                    text = "НЕТ",
+                                    text = stringResource(R.string.no),
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold
                                 )
@@ -156,7 +157,7 @@ fun App(viewModel: MainViewModel) {
                                 }
                             ) {
                                 Text(
-                                    text = "ДА",
+                                    text = stringResource(R.string.yes),
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold
                                 )

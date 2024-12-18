@@ -26,4 +26,7 @@
     <string name="is_one_shot">One-shot animation without state control?</string>
     <string name="animation_state">AnimationState / animate()</string>
     <string name="no_answer">No answer found. Write a request: goo.gle/compose-feedback</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="animation_samples">Animation Samples</string>
 </resources>
